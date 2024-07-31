@@ -6,6 +6,7 @@ public class Application {
 
         System.out.println(RandomMaker.randomNumber(1, 3));
         System.out.println(RandomMaker.randomUpperAlphabet(3));
-
+        System.out.println(RandomMaker.rockPaperScissors());
+        System.out.println(RandomMaker.tossCoin());
     }
 }

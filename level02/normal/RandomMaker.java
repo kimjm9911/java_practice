@@ -16,12 +16,17 @@ public class RandomMaker {
         return sb.toString();
     }
 
-//    public static String rockPaperScissors() {
-//        Random R = new Random();
-//
-//    }
-//
-//    public static String tossCoin() {
-//
-//    }
+    public static String rockPaperScissors() {
+        String rps [] = {"가위", "바위", "보"};
+        int num = (int)(Math.random() * (rps.length - 1));
+
+        return rps[num];
+    }
+
+    public static String tossCoin() {
+        String tc [] = {"앞면", "뒷면"};
+        int num = (int)(Math.random() * (tc.length - 1));
+
+        return tc[num];
+    }
 }
