@@ -1,6 +1,5 @@
-package com.ohgiraffers.chap10.level01.basic;
+package com.ohgiraffers.chap11.level01.basic;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,6 +32,7 @@ public class Application2 {
             if (fr != null) {
                 try {
                     fr.close();
+                    fw.close();
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }

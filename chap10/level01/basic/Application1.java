@@ -1,37 +1,32 @@
 package com.ohgiraffers.chap10.level01.basic;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import com.ohgiraffers.chap10.level01.basic.exception.DivideZero;
+import com.ohgiraffers.chap10.level01.basic.exception.NotInteger;
+
 import java.util.Scanner;
 
 public class Application1 {
     public static void main(String[] args) {
-        FileReader fr = null;
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("파일의 이름을 입력하세요 : ");
-        String str = sc.nextLine();
+        DivideTest divideTest = new DivideTest();
+        Scanner scanner = new Scanner(System.in);
 
         try {
-            fr = new FileReader(str);
+            System.out.print("분자 입력 : ");
+            String num1 = scanner.nextLine();
+            System.out.print("분모 입력 : ");
+            String num2 = scanner.nextLine();
 
-            int value;
-            while ((value = fr.read()) != -1) {
-                System.out.print((char) value);
-            }
+            divideTest.checkDivide(num1, num2);
+            int number = Integer.parseInt(num1);
+            int number2 = Integer.parseInt(num2);
+            System.out.println("결과 : " + number / number2);
 
-        } catch (IOException e) {
-            System.out.println("오류 : 해당 이름을 가진 파일이 없습니다.");
+        } catch (DivideZero e) {
+            System.out.println(e.getMessage());
+        } catch (NotInteger e) {
+            System.out.println(e.getMessage());
         } finally {
-            if (fr != null) {
-                try {
-                    fr.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+            System.out.println("실행이 완료되었습니다.");
         }
     }
 }
